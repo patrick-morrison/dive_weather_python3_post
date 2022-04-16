@@ -15,7 +15,7 @@ categories:
   - Vis.Report
   - Diving
   - Python
-repository: https://github.com/patrick-morrison/dive_weather_python_d3_post
+repository_url: https://github.com/patrick-morrison/dive_weather_python_d3_post
 preview: vis_report_mettams.png
 ---
 
@@ -23,17 +23,17 @@ preview: vis_report_mettams.png
 
 [Vis.Report](https://vis.report) is a website that allows divers to share visibility reports - a measure of underwater site conditions.
 
-In a [previous blog post](https://padmorrison.com/posts/2021-09-05-predicting-underwater-visibility/), I have described how I plan to use this data to predict site visibility. Over the last two years divers have contributed over 400 reports, so we are making good progress on having enough data to do so! If you are a diver or snorkeller in Perth, please sign up and contribute.
+In a [previous blog post](https://padmorrison.com/posts/2021-09-05-predicting-underwater-visibility/), I have described how I plan to use this data to predict site visibility. Over the last two years, divers have contributed over 400 reports. We are making good progress on the amount of data needed to resolve the fine details!
 
-In the meantime, and to encourage more report I have added a weather forecast function. One site I use often is [Seabreeze](https://www.seabreeze.com.au/weather/wind-forecast/perth), which shows a simple wind and swell forecast with colour coding for wind speed. I have always wanted a version fine-tuned by dive site, and that can also take into account wind direction - which is often more important than wind speed (more on that in a moment).
+In the meantime (and to encourage more reports) I have added a weather forecast function. One site I use often is [Seabreeze](https://www.seabreeze.com.au/weather/wind-forecast/perth), which shows a simple wind and swell forecast with colour coding for wind speed. I have always wanted a version fine-tuned by dive site, and that can also take into account wind direction - which is often more important than wind speed (more on that in a moment).
 
-This post describes the mechanics of that system, which is used by Vis.Report to produce interactive graphs for the week ahead.
+This post describes the mechanics of that system, which is used by Vis.Report to produce interactive graphs for the week ahead. If wind (arrows) and swell (area) are both green - you should have a pleasant dive.
 
 [![Vis.Report page for Mettam's Pool, showing the forecast weather.](vis_report_mettams.png "Vis.Report page for Mettam's Pool, showing the forecast weather.")](http://vis.report/MET)
 
 ## Every site responds to weather differently
 
-A popular snorkel site in Perth is the Mettam's Pool, in Marmion (<https://vis.report/MET>). It is a relatively well-protected shallow reef, with a huge variety of marine life.
+A popular snorkel site in Perth is the Mettam's Pool in Marmion (<https://vis.report/MET>). It is a relatively well-protected shallow reef, with a huge variety of marine life.
 
 ```{r map}
 library(leaflet)  
@@ -58,7 +58,7 @@ Ideally you are looking for swell less than 1m, so that you can get into the wat
 
 ### Representing site response to weather
 
-This wind information can be represented formally as a table, using a row for wind angle (degrees), wind speed (knots), and a score (0 = ideal, 1 = marginal, 2 = poor).
+This wind information can be represented formally as a table, using a column for wind angle (degrees), wind speed (knots), and a score (0 = ideal, 1 = marginal, 2 = poor).
 
 ```{r condition_table}
 library(tidyverse)
@@ -146,7 +146,7 @@ var wind_data = d3.csv("wind_csv.csv", d3.autoType).then((data) => {
 
 ## Getting the weather forecast with the WillyWeather API
 
-Vis.Report is built in Django, which is a Python web framework. Most of this post is written in Python, which means it can be run directly in a Django view (this is how it is implemented in Vis.Report). For the full code, visit the Github repository for [this post](https://github.com/patrick-morrison/dive_weather_python_d3_post) or [Vis.Report](https://github.com/patrick-morrison/visreport2).[^2]
+Vis.Report is built in Django, which is a Python web framework. Most of this post is written in Python, which means it can be run directly in a Django views (this is how it is implemented in Vis.Report). For the full code, visit the [GitHub repository for this post](https://github.com/patrick-morrison/dive_weather_python_d3_post) or [the repository for Vis.Report](https://github.com/patrick-morrison/visreport2).[^2]
 
 [^2]: The back-end python code is mostly in [this views file](https://github.com/patrick-morrison/visreport2/blob/main/weather/views.py). This front-end graphing is in [the templates](https://github.com/patrick-morrison/visreport2/tree/main/weather/templates/weather).
 
@@ -170,7 +170,7 @@ In Australia, the best API for coastal weather is [WillyWeather](https://www.wil
 
 4.  Pull the swell and wind data out of the json responses using `pd.json_normalize`
 
-5.  Combine them into a table with `pd.merge` (remembering the fill the NAs produced by the 5-7 day swell forecast being 2-hourly with `fillna`)
+5.  Combine them into a table with `pd.merge` (remembering the fill the NAs produced by the 5-7 day swell forecast being 2-hourly)
 
 ```{python weather_forecast}
 import pandas as pd
