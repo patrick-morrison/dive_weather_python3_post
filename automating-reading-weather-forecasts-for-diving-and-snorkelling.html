@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Automating reading weather forecasts for diving and snorkelling</title>
+
+  <meta property="description" itemprop="description" content="Divable conditions are mainly a factor of swell, wind and wind direction. With Python and d3, we can visualise the week ahead."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-04-16"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-04-16"/>
+  <meta name="article:author" content="Patrick Morrison"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Automating reading weather forecasts for diving and snorkelling"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Divable conditions are mainly a factor of swell, wind and wind direction. With Python and d3, we can visualise the week ahead."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Automating reading weather forecasts for diving and snorkelling"/>
+  <meta property="twitter:description" content="Divable conditions are mainly a factor of swell, wind and wind direction. With Python and d3, we can visualise the week ahead."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","repository","preview"]}},"value":[{"type":"character","attributes":{},"value":["Automating reading weather forecasts for diving and snorkelling"]},{"type":"character","attributes":{},"value":["Divable conditions are mainly a factor of swell, wind and wind direction. With Python and d3, we can visualise the week ahead.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Patrick Morrison"]},{"type":"character","attributes":{},"value":["https://padmorrison.com"]}]}]},{"type":"character","attributes":{},"value":["2022-04-16"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["Vis.Report","Diving","Python"]},{"type":"character","attributes":{},"value":["https://github.com/patrick-morrison/dive_weather_python_d3_post"]},{"type":"character","attributes":{},"value":["vis_report_mettams.png"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["automating-reading-weather-forecasts-for-diving-and-snorkelling_files/anchor-4.2.2/anchor.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/bowser-1.9.3/bowser.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/d3v6-6.2.0/API.md","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/d3v6-6.2.0/CHANGES.md","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/d3v6-6.2.0/d3.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/d3v6-6.2.0/LICENSE","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/d3v6-6.2.0/README.md","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/distill-2.2.21/template.v2.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/header-attrs-2.11/header-attrs.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/htmlwidgets-1.5.4/htmlwidgets.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/jquery-3.6.0/jquery-3.6.0.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/jquery-3.6.0/jquery-3.6.0.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/jquery-3.6.0/jquery-3.6.0.min.map","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/images/layers-2x.png","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/images/layers.png","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/images/marker-icon-2x.png","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/images/marker-icon.png","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/images/marker-shadow.png","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/leaflet.css","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/leaflet.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-binding-2.0.4.1/leaflet.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leafletfix-1.0.0/leafletfix.css","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/pagedtable-1.1/css/pagedtable.css","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/pagedtable-1.1/js/pagedtable.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/popper-2.6.0/popper.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/proj4-2.6.2/proj4.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/Proj4Leaflet-1.0.1/proj4leaflet.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/r2d3-binding-0.2.6/r2d3.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/r2d3-render-0.1.0/r2d3-render.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/rstudio_leaflet-1.3.1/images/1px.png","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/tippy-6.2.7/tippy-bundle.umd.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/tippy-6.2.7/tippy-light-border.css","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/tippy-6.2.7/tippy.css","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/tippy-6.2.7/tippy.umd.min.js","automating-reading-weather-forecasts-for-diving-and-snorkelling_files/webcomponents-2.0.0/webcomponents.js","requirements.txt","scores.csv","vis_report_mettams.png","wind_csv.csv","wind_rose.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-1.3.1/leaflet.js"></script>
+  <link href="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/proj4-2.6.2/proj4.min.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+  <link href="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-binding-2.0.4.1/leaflet.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+  <link href="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/pagedtable-1.1/js/pagedtable.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/popper-2.6.0/popper.min.js"></script>
+  <link href="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="automating-reading-weather-forecasts-for-diving-and-snorkelling_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Automating reading weather forecasts for diving and snorkelling","description":"Divable conditions are mainly a factor of swell, wind and wind direction. With Python and d3, we can visualise the week ahead.","authors":[{"author":"Patrick Morrison","authorURL":"https://padmorrison.com","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-04-16T00:00:00.000+08:00","citationText":"Morrison, 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Automating reading weather forecasts for diving and snorkelling</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">Vis.Report</div>
+<div class="dt=tag">Diving</div>
+<div class="dt=tag">Python</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>Divable conditions are mainly a factor of swell, wind and wind
+direction. With Python and d3, we can visualise the week ahead.</p></p>
+</div>
+
+<div class="d-byline">
+  Patrick Morrison <a href="https://padmorrison.com"
+class="uri">https://padmorrison.com</a> 
+  
+<br/>2022-04-16
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#showing-site-weather-on-vis.report">Showing site weather
+on Vis.Report</a></li>
+<li><a href="#every-site-responds-to-weather-differently">Every site
+responds to weather differently</a>
+<ul>
+<li><a href="#representing-site-response-to-weather">Representing site
+response to weather</a></li>
+</ul></li>
+<li><a
+href="#getting-the-weather-forecast-with-the-willyweather-api">Getting
+the weather forecast with the WillyWeather API</a></li>
+<li><a href="#scoring-the-forecast">Scoring the forecast</a></li>
+<li><a href="#showing-the-forecast">Showing the forecast</a></li>
+</ul>
+</nav>
+</div>
+<h2 id="showing-site-weather-on-vis.report">Showing site weather on
+Vis.Report</h2>
+<p><a href="https://vis.report">Vis.Report</a> is a website that allows
+divers to share visibility reports - a measure of underwater site
+conditions.</p>
+<p>In a <a
+href="https://padmorrison.com/posts/2021-09-05-predicting-underwater-visibility/">previous
+blog post</a>, I have described how I plan to use this data to predict
+site visibility. Over the last two years divers have contributed over
+400 reports, so we are making good progress on having enough data to do
+so! If you are a diver or snorkeller in Perth, please sign up and
+contribute.</p>
+<p>In the meantime, and to encourage more report I have added a weather
+forecast function. One site I use often is <a
+href="https://www.seabreeze.com.au/weather/wind-forecast/perth">Seabreeze</a>,
+which shows a simple wind and swell forecast with colour coding for wind
+speed. I have always wanted a version fine-tuned by dive site, and that
+can also take into account wind direction - which is often more
+important than wind speed (more on that in a moment).</p>
+<p>This post describes the mechanics of that system, which is used by
+Vis.Report to produce interactive graphs for the week ahead.</p>
+<p><a href="http://vis.report/MET"><img src="vis_report_mettams.png"
+title="Vis.Report page for Mettam&#39;s Pool, showing the forecast weather."
+alt="Vis.Report page for Mettam’s Pool, showing the forecast weather." /></a></p>
+<h2 id="every-site-responds-to-weather-differently">Every site responds
+to weather differently</h2>
+<p>A popular snorkel site in Perth is the Mettam’s Pool, in Marmion (<a
+href="https://vis.report/MET" class="uri">https://vis.report/MET</a>).
+It is a relatively well-protected shallow reef, with a huge variety of
+marine life.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rstudio.github.io/leaflet/'>leaflet</a></span><span class='op'>)</span>  
+<span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/leaflet.html'>leaflet</a></span><span class='op'>(</span>options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/leaflet.html'>leafletOptions</a></span><span class='op'>(</span>minZoom <span class='op'>=</span> <span class='fl'>10</span>, maxZoom <span class='op'>=</span> <span class='fl'>13</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/leaflet/man/leaflet-imports.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-methods.html'>setView</a></span><span class='op'>(</span>lng<span class='op'>=</span><span class='fl'>115.747833</span>, lat<span class='op'>=</span><span class='op'>-</span><span class='fl'>31.963271</span>, zoom <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/leaflet/man/leaflet-imports.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/addProviderTiles.html'>addProviderTiles</a></span><span class='op'>(</span><span class='va'>providers</span><span class='op'>$</span><span class='va'>CartoDB.Voyager</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/leaflet/man/leaflet-imports.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addCircleMarkers</a></span><span class='op'>(</span>opacity<span class='op'>=</span><span class='fl'>0</span>, fillOpacity<span class='op'>=</span><span class='fl'>0</span>,
+                   lng<span class='op'>=</span><span class='fl'>115.747833</span>, lat<span class='op'>=</span><span class='op'>-</span><span class='fl'>31.863271</span>,
+                   label<span class='op'>=</span><span class='st'>"Mettam's Pool"</span>,
+                   labelOptions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-options.html'>labelOptions</a></span><span class='op'>(</span>noHide <span class='op'>=</span> <span class='cn'>T</span>, textsize <span class='op'>=</span> <span class='st'>"15px"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<div id="htmlwidget-5722be2301410030fb57" style="width:624px;height:384px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5722be2301410030fb57">{"x":{"options":{"minZoom":10,"maxZoom":13,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[-31.963271,115.747833],10,[]],"calls":[{"method":"addProviderTiles","args":["CartoDB.Voyager",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[-31.863271,115.747833,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0,"fill":true,"fillColor":"#03F","fillOpacity":0},null,null,null,null,"Mettam's Pool",{"interactive":false,"permanent":true,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"15px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-31.863271,-31.863271],"lng":[115.747833,115.747833]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Access to the site, and underwater conditions are very weather
+dependent.</p>
+<p>Ideally you are looking for swell less than 1m, so that you can get
+into the water without being knocked over by a wave. You are also hoping
+for light easterly winds, which come off the land. On the other hand, a
+strong westerly (say above 10 knots) will create wind waves on the
+ocean’s surface, making it choppy and reducing underwater visibility.
+This can be represented using a wind rose, where green shows ideal
+conditions, and red shows poor conditions.</p>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<div id="windrose">
+
+</div>
+<h3 id="representing-site-response-to-weather">Representing site
+response to weather</h3>
+<p>This wind information can be represented formally as a table, using a
+row for wind angle (degrees), wind speed (knots), and a score (0 =
+ideal, 1 = marginal, 2 = poor).</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>'wind_csv.csv'</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>label</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span>options <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>rows.print<span class='op'>=</span><span class='fl'>8</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["angle"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["wind"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["score"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"0","3":"0"},{"1":"45","2":"0","3":"0"},{"1":"90","2":"0","3":"0"},{"1":"135","2":"0","3":"0"},{"1":"180","2":"0","3":"0"},{"1":"225","2":"0","3":"0"},{"1":"270","2":"0","3":"0"},{"1":"315","2":"0","3":"0"},{"1":"0","2":"5","3":"0"},{"1":"45","2":"5","3":"0"},{"1":"90","2":"5","3":"0"},{"1":"135","2":"5","3":"0"},{"1":"180","2":"5","3":"0"},{"1":"225","2":"5","3":"0"},{"1":"270","2":"5","3":"0"},{"1":"315","2":"5","3":"0"},{"1":"0","2":"10","3":"1"},{"1":"45","2":"10","3":"0"},{"1":"90","2":"10","3":"0"},{"1":"135","2":"10","3":"0"},{"1":"180","2":"10","3":"1"},{"1":"225","2":"10","3":"1"},{"1":"270","2":"10","3":"1"},{"1":"315","2":"10","3":"1"},{"1":"0","2":"15","3":"2"},{"1":"45","2":"15","3":"0"},{"1":"90","2":"15","3":"0"},{"1":"135","2":"15","3":"0"},{"1":"180","2":"15","3":"2"},{"1":"225","2":"15","3":"2"},{"1":"270","2":"15","3":"2"},{"1":"315","2":"15","3":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[8],"max":[8]},"pages":{}}}
+  </script>
+</div>
+</div>
+<p>The Javascript code block below shows how this table can be turned
+into the wind rose above using the d3 visualisation library.<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> width <span class="op">=</span> <span class="dv">330</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">330</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>margin <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> radius <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(width<span class="op">,</span> height) <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> margin</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">//select windrose div and add graph spaces</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#windrose&quot;</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> width)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> height)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(&quot;</span> <span class="op">+</span> width <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&quot;,&quot;</span> <span class="op">+</span> height <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="st">&quot;)&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">//read in the conditions table</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> wind_data <span class="op">=</span> d3<span class="op">.</span><span class="fu">csv</span>(<span class="st">&quot;wind_csv.csv&quot;</span><span class="op">,</span> d3<span class="op">.</span><span class="at">autoType</span>)<span class="op">.</span><span class="fu">then</span>((data) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">//define colours</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> color <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleOrdinal</span>()</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>])</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([<span class="st">&quot;#5cb85c&quot;</span><span class="op">,</span> <span class="st">&quot;#f0ad4e&quot;</span><span class="op">,</span> <span class="st">&quot;#d9534f&quot;</span>])<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">//build the arcs for wind direction</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> arc <span class="op">=</span> d3<span class="op">.</span><span class="fu">arc</span>()</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">innerRadius</span>(<span class="kw">function</span> (d) { <span class="cf">return</span> d<span class="op">.</span><span class="at">wind</span> <span class="op">*</span> radius <span class="op">/</span> <span class="dv">20</span> })</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">outerRadius</span>(<span class="kw">function</span> (d) { <span class="cf">return</span> (d<span class="op">.</span><span class="at">wind</span> <span class="op">+</span> <span class="dv">5</span>) <span class="op">*</span> radius <span class="op">/</span> <span class="dv">20</span> })</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">startAngle</span>(<span class="kw">function</span> (d) { <span class="cf">return</span> (d<span class="op">.</span><span class="at">angle</span> <span class="op">-</span> <span class="fl">22.5</span>) <span class="op">*</span> (<span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span> <span class="op">/</span> <span class="dv">180</span>) })</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">endAngle</span>(<span class="kw">function</span> (d) { <span class="cf">return</span> (d<span class="op">.</span><span class="at">angle</span> <span class="op">+</span> <span class="fl">22.5</span>) <span class="op">*</span> (<span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span> <span class="op">/</span> <span class="dv">180</span>) })</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">//define update score function for click event</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> updatescore <span class="op">=</span> <span class="kw">function</span> (d<span class="op">,</span> i) {</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        i<span class="op">.</span><span class="at">score</span> <span class="op">=</span> (i<span class="op">.</span><span class="at">score</span> <span class="op">==</span> <span class="dv">2</span> <span class="op">?</span> <span class="dv">0</span> <span class="op">:</span> i<span class="op">.</span><span class="at">score</span> <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="kw">function</span> (d) { <span class="cf">return</span> <span class="fu">color</span>(i<span class="op">.</span><span class="at">score</span>)<span class="op">;</span> })<span class="op">;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">//colour each arc by score</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    svg<span class="op">.</span><span class="fu">append</span>(<span class="st">&#39;g&#39;</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;path&quot;</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(data)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;path&quot;</span>)</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> <span class="kw">function</span> (d) { <span class="cf">return</span> <span class="fu">arc</span>(d)<span class="op">;</span> })</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="kw">function</span> (d) { <span class="cf">return</span> <span class="fu">color</span>(d<span class="op">.</span><span class="at">score</span>) })</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&#39;#EAECEE&#39;</span>)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> updatescore)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="co">//add in the labels</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    svg</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&#39;labels&#39;</span>)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(data)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&#39;text&#39;</span>)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="dv">14</span>)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;pointer-events&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">text</span>(<span class="kw">function</span> (d) { <span class="cf">return</span> d<span class="op">.</span><span class="at">label</span> })</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;fill&#39;</span><span class="op">,</span> <span class="st">&#39;white&#39;</span>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;transform&#39;</span><span class="op">,</span> <span class="kw">function</span> (d) {</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>            <span class="kw">var</span> pos <span class="op">=</span> arc<span class="op">.</span><span class="fu">centroid</span>(d)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&#39;translate(&#39;</span> <span class="op">+</span> pos <span class="op">+</span> <span class="st">&#39;)&#39;</span><span class="op">;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>})<span class="op">.</span><span class="fu">catch</span>((error) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">error</span>(<span class="st">&quot;Error loading the data&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+</details>
+<script type="text/javascript">
+var width = 330
+height = 330
+margin = 5
+
+var radius = Math.min(width, height) / 2 - margin
+
+//select windrose div and add graph spaces
+var svg = d3.select("#windrose")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+//read in the conditions table
+var wind_data = d3.csv("wind_csv.csv", d3.autoType).then((data) => {
+
+    //define colours
+    var color = d3.scaleOrdinal()
+        .domain([0, 1, 2])
+        .range(["#5cb85c", "#f0ad4e", "#d9534f"]);
+
+    //build the arcs for wind direction
+    var arc = d3.arc()
+        .innerRadius(function (d) { return d.wind * radius / 20 })
+        .outerRadius(function (d) { return (d.wind + 5) * radius / 20 })
+        .startAngle(function (d) { return (d.angle - 22.5) * (Math.PI / 180) })
+        .endAngle(function (d) { return (d.angle + 22.5) * (Math.PI / 180) })
+
+    //define update score function for click event
+    var updatescore = function (d, i) {
+        i.score = (i.score == 2 ? 0 : i.score + 1)
+
+        d3.select(this)
+            .style("fill", function (d) { return color(i.score); });
+
+    };
+
+    //colour each arc by score
+    svg.append('g')
+        .selectAll("path")
+        .data(data)
+        .enter()
+        .append("path")
+        .attr("d", function (d) { return arc(d); })
+        .style("fill", function (d) { return color(d.score) })
+        .style("stroke", '#EAECEE')
+        .on("click", updatescore)
+
+    //add in the labels
+    svg
+        .selectAll('labels')
+        .data(data)
+        .enter()
+        .append('text')
+        .attr("font-size", 14)
+        .attr("pointer-events", "none")
+        .text(function (d) { return d.label })
+        .attr('fill', 'white')
+        .attr('transform', function (d) {
+            var pos = arc.centroid(d)
+            return 'translate(' + pos + ')';
+        })
+
+
+}).catch((error) => {
+    console.error("Error loading the data");
+});
+</script>
+</div>
+<h2 id="getting-the-weather-forecast-with-the-willyweather-api">Getting
+the weather forecast with the WillyWeather API</h2>
+<p>Vis.Report is built in Django, which is a Python web framework. Most
+of this post is written in Python, which means it can be run directly in
+a Django view (this is how it is implemented in Vis.Report). For the
+full code, visit the Github repository for <a
+href="https://github.com/patrick-morrison/dive_weather_python_d3_post">this
+post</a> or <a
+href="https://github.com/patrick-morrison/visreport2">Vis.Report</a>.<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># needs virtual environment</span>
+<span class='co'># python3 -m venv .venv</span>
+<span class='co'># source .venv/bin/activate</span>
+<span class='co'># pip install -r requirements.txt</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Sys.setenv.html'>Sys.setenv</a></span><span class='op'>(</span>RETICULATE_PYTHON <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"/.venv/bin/python"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rstudio.github.io/reticulate/'>reticulate</a></span><span class='op'>)</span>
+<span class='va'>WILLYWEATHER_API</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"WILLYWEATHER_API"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<p>In Australia, the best API for coastal weather is <a
+href="https://www.willyweather.com.au/info/api.html">WillyWeather</a>.
+For just over a 100 requests per day it works out to cost about a dollar
+a year. Once you have an API key, querying it with the Python requests
+library is easy:</p>
+<ol type="1">
+<li><p>Get the nearest location in their database (<a
+href="https://www.willyweather.com.au/api/docs/v2.html#search">docs</a>)</p></li>
+<li><p>Get the forecast (<a
+href="https://www.willyweather.com.au/api/docs/v2.html#forecast-get-swell">docs</a>)</p></li>
+<li><p>Check this has swell as well as wind, and if it doesn’t choose
+the closest that does <a
+href="https://www.willyweather.com.au/api/docs/v2.html#location-get-get-closest-locations">docs</a></p></li>
+<li><p>Pull the swell and wind data out of the json responses using
+<code>pd.json_normalize</code></p></li>
+<li><p>Combine them into a table with <code>pd.merge</code> (remembering
+the fill the NAs produced by the 5-7 day swell forecast being 2-hourly
+with <code>fillna</code>)</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arrow</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>api_key <span class="op">=</span> r.WILLYWEATHER_API</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># or os.getenv(&#39;WILLYWEATHER_API&#39;)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># coordinates for Mettam&#39;s Pool</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>lat <span class="op">=</span> <span class="op">-</span><span class="fl">31.963271</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>lon <span class="op">=</span> <span class="fl">115.747833</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Willyweather search api endpoint</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>search_url <span class="op">=</span> <span class="ss">f&#39;https://api.willyweather.com.au/v2/</span><span class="sc">{</span>api_key<span class="sc">}</span><span class="ss">/search.json&#39;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Find closest point</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>search <span class="op">=</span> requests.get(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  search_url,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  params<span class="op">=</span>{</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;lat&#39;</span>: lat,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;lng&#39;</span>: lon,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;range&quot;</span>: <span class="dv">20</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;distance&quot;</span>: <span class="st">&quot;km&quot;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the station id for next step</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span> <span class="op">=</span> search.json()[<span class="st">&#39;location&#39;</span>][<span class="st">&#39;id&#39;</span>]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Willyweather forecast api endpoint</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>forecast_url <span class="op">=</span> <span class="ss">f&#39;https://api.willyweather.com.au/v2/</span><span class="sc">{</span>api_key<span class="sc">}</span><span class="ss">/locations/</span><span class="sc">{</span><span class="bu">id</span><span class="sc">}</span><span class="ss">/weather.json&#39;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Get forecast</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>forecast <span class="op">=</span> requests.get(</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  forecast_url,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  params<span class="op">=</span>{</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;forecasts&#39;</span>: <span class="st">&#39;wind,swell&#39;</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;days&#39;</span>: <span class="dv">7</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  },</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the forecast response</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>weather_json <span class="op">=</span> forecast.json()</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for swell data (not all sites has it)</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># if no swell data, find the closest location that has it</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> weather_json[<span class="st">&#39;forecasts&#39;</span>][<span class="st">&#39;swell&#39;</span>]:</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    close_url <span class="op">=</span> <span class="ss">f&#39;https://api.willyweather.com.au/v2/</span><span class="sc">{</span>api_key<span class="sc">}</span><span class="ss">/search/closest.json&#39;</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    close <span class="op">=</span> requests.get(</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    close_url,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    params<span class="op">=</span>{</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;id&#39;</span>:<span class="bu">id</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;weatherTypes&#39;</span>:<span class="st">&quot;swell&quot;</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;distance&quot;</span>: <span class="st">&quot;km&quot;</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">=</span> close.json()[<span class="st">&#39;swell&#39;</span>][<span class="dv">0</span>][<span class="st">&#39;id&#39;</span>]</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    forecast_url <span class="op">=</span> <span class="ss">f&#39;https://api.willyweather.com.au/v2/</span><span class="sc">{</span>api_key<span class="sc">}</span><span class="ss">/locations/</span><span class="sc">{</span><span class="bu">id</span><span class="sc">}</span><span class="ss">/weather.json&#39;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    startDate <span class="op">=</span> arrow.now().floor(<span class="st">&#39;day&#39;</span>).<span class="bu">format</span>(<span class="st">&#39;YYYY-MM-DD&#39;</span>)</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    forecast <span class="op">=</span> requests.get(</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    forecast_url,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    params<span class="op">=</span>{</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;forecasts&#39;</span>: <span class="st">&#39;wind,swell&#39;</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;days&#39;</span>: <span class="dv">7</span>,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;startDate&#39;</span>: startDate,  <span class="co"># Convert to UTC timestamp</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    weather_json <span class="op">=</span> forecast.json()</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert wind json to pandas dataframe</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>wind_data <span class="op">=</span> pd.json_normalize(weather_json[<span class="st">&#39;forecasts&#39;</span>][<span class="st">&#39;wind&#39;</span>][<span class="st">&#39;days&#39;</span>],</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>record_path<span class="op">=</span><span class="st">&#39;entries&#39;</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>).rename(</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  columns<span class="op">=</span>{<span class="st">&quot;speed&quot;</span>: <span class="st">&quot;wind&quot;</span>, <span class="st">&quot;direction&quot;</span>: <span class="st">&quot;wind_dir&quot;</span>,</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;directionText&quot;</span>: <span class="st">&quot;wind_dir_text&quot;</span>})</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert swell json to pandas dataframe</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>swell_data <span class="op">=</span> pd.json_normalize(</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  weather_json[<span class="st">&#39;forecasts&#39;</span>][<span class="st">&#39;swell&#39;</span>][<span class="st">&#39;days&#39;</span>],</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  record_path<span class="op">=</span><span class="st">&#39;entries&#39;</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>).drop([<span class="st">&#39;period&#39;</span>, <span class="st">&#39;direction&#39;</span>], axis<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>).rename(columns<span class="op">=</span>{<span class="st">&quot;height&quot;</span>: <span class="st">&quot;swell&quot;</span>, <span class="st">&quot;directionText&quot;</span>: <span class="st">&quot;swell_dir_text&quot;</span>})</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge together and fill</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>weather <span class="op">=</span> pd.merge(</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>    wind_data,</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>     swell_data, how<span class="op">=</span><span class="st">&quot;left&quot;</span>, on<span class="op">=</span>[<span class="st">&#39;dateTime&#39;</span>]</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>     ).fillna(method<span class="op">=</span><span class="st">&quot;ffill&quot;</span>)</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Show table</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>weather.head()</span></code></pre></div>
+</details>
+<pre><code>              dateTime  wind  wind_dir wind_dir_text swell_dir_text  swell
+0  2022-04-16 00:00:00  28.8       169             S            WSW    1.3
+1  2022-04-16 01:00:00  29.5       168           SSE            WSW    1.3
+2  2022-04-16 02:00:00  31.3       165           SSE            WSW    1.3
+3  2022-04-16 03:00:00  30.6       168           SSE            WSW    1.3
+4  2022-04-16 04:00:00  31.7       169             S            WSW    1.3</code></pre>
+</div>
+<h2 id="scoring-the-forecast">Scoring the forecast</h2>
+<p>Scoring the forecast involves a join to the wind table, and a
+function for swell. On the forecast table, wind speed is rounded down to
+the nearest 5 knots, and wind angle is rounded to the nearest 45
+degrees. This table is then left-joined to the wind condition table. A
+function for swell defining marginal (1.2m for Mettam’s) and maximum
+(1.8m) is applied to the swell height. These are both combined with the
+original forecast and saved as a csv, for passing to the graphing
+function.[^On Vis.Report, this is a csv endpoint for each site. Each
+time it is called, it calculates the scores against the weather
+forecast. If the weather forecast has been refreshed in the last 3 hours
+it just pulls it from the database. Otherwise, it updates before
+scoring. See for <a
+href="https://vis.report/sites_weather/met/weather_csv/">Mettam’s
+Pool</a>.]</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the conditions table to pandas</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> pd.read_csv(<span class="st">&#39;wind_csv.csv&#39;</span>).drop(<span class="st">&#39;label&#39;</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># function to limit rounded wind speed to 15 knots</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clamp(n, maxn<span class="op">=</span><span class="dv">15</span>):</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">max</span>(<span class="bu">min</span>(maxn, n), <span class="dv">0</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># round wind speed to nearest 5kn</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># round wind angle to nearest 45 degrees</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># this is so it can be joined to the score table</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>rounded <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;wind&#39;</span>: pd.to_numeric(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span><span class="op">*</span>((weather[<span class="st">&#39;wind&#39;</span>]<span class="op">*</span><span class="fl">0.54</span><span class="op">/</span><span class="dv">5</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    ).<span class="bu">apply</span>(np.floor)), downcast<span class="op">=</span><span class="st">&#39;integer&#39;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    ).<span class="bu">apply</span>(clamp),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;angle&#39;</span>: pd.to_numeric(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="dv">45</span><span class="op">*</span>((weather[<span class="st">&#39;wind_dir&#39;</span>]<span class="op">/</span><span class="dv">45</span>).<span class="bu">apply</span>(np.<span class="bu">round</span>)),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      downcast<span class="op">=</span><span class="st">&#39;integer&#39;</span>).replace([<span class="dv">360</span>],<span class="dv">0</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># join rounded wind values to score table</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>wind <span class="op">=</span> pd.merge(</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    rounded,</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>     con, how<span class="op">=</span><span class="st">&quot;left&quot;</span>, on<span class="op">=</span>[<span class="st">&quot;angle&quot;</span>, <span class="st">&quot;wind&quot;</span>]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>).rename({<span class="st">&#39;score&#39;</span>: <span class="st">&#39;wind_score&#39;</span>}, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># function to score swell</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># if it is over marginal, it gets a score of 1</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co"># if it is over bad, it gets a score of 2</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> swell_calc(swell, marginal, bad):</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> swell <span class="op">&lt;=</span> marginal:</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> swell <span class="op">&lt;=</span> bad:</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        score <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> score</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># score swell</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>swell <span class="op">=</span> weather[<span class="st">&#39;swell&#39;</span>].<span class="bu">apply</span>(</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  swell_calc, marginal<span class="op">=</span><span class="fl">1.2</span>, bad <span class="op">=</span> <span class="fl">1.8</span>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co"># function to cap total score (wind + swell) to 2</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cap(n):</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(n, <span class="dv">2</span>)</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co"># construct table of conditions and scores</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;time&#39;</span>: weather[<span class="st">&#39;dateTime&#39;</span>],</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;swell&#39;</span>: weather[<span class="st">&#39;swell&#39;</span>],</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;swell_dir_text&#39;</span> : weather[<span class="st">&#39;swell_dir_text&#39;</span>],</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;wind&#39;</span>: (weather[<span class="st">&#39;wind&#39;</span>]<span class="op">*</span><span class="fl">0.54</span>).<span class="bu">round</span>(decimals <span class="op">=</span> <span class="dv">1</span>),</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;wind_dir&#39;</span>: weather[<span class="st">&#39;wind_dir&#39;</span>],</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;wind_dir_text&#39;</span> : weather[<span class="st">&#39;wind_dir_text&#39;</span>],</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;swell_score&#39;</span>: swell,</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;wind_score&#39;</span>: wind[<span class="st">&#39;wind_score&#39;</span>],</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;total_score&#39;</span>: (swell<span class="op">+</span>wind[<span class="st">&#39;wind_score&#39;</span>]).<span class="bu">apply</span>(cap),</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="co"># csv to be passed to d3</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>scores.to_csv(<span class="st">&#39;scores.csv&#39;</span>)</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>scores.head()</span></code></pre></div>
+</details>
+<pre><code>                  time  swell  ... wind_score  total_score
+0  2022-04-16 00:00:00    1.3  ...          2            2
+1  2022-04-16 01:00:00    1.3  ...          2            2
+2  2022-04-16 02:00:00    1.3  ...          2            2
+3  2022-04-16 03:00:00    1.3  ...          2            2
+4  2022-04-16 04:00:00    1.3  ...          2            2
+
+[5 rows x 9 columns]</code></pre>
+</div>
+<h2 id="showing-the-forecast">Showing the forecast</h2>
+<p>This table of conditions and their scores can be passed back to d3
+for plotting. This plot shows wind as arrows, with y = speed in knots
+and pointing in the direction of wind flow. It shows swell as an area
+with y = height in metres. Both of these are coloured by their scores.
+This summarises the week, with ideal diving conditions shown in green,
+marginal days in yellow, and poor days in red.</p>
+<div id="weather" style="overflow-x: scroll; width: 100%;">
+
+</div>
+<p>The CSS:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.grid</span> line {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  stroke: <span class="cn">lightgrey</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  stroke-opacity: <span class="dv">0.7</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  shape-rendering: crispEdges<span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">.grid</span> path {</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  stroke-width: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">.line</span> {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  stroke: <span class="fu">url(</span><span class="st">#swell_gradient</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  stroke-width: <span class="dv">1.5</span><span class="op">;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">fill</span> : <span class="fu">url(</span><span class="st">#swell_gradient</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">opacity</span> : <span class="dv">0.4</span><span class="op">;</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</details>
+<style type="text/css">
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.line {
+  stroke: url(#swell_gradient);
+  stroke-width: 1.5;
+  fill : url(#swell_gradient);
+  opacity : 0.4;
+}
+</style>
+</div>
+<p>And the Javascript:</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// set the dimensions and margins of the graph</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> margin_weather <span class="op">=</span> { <span class="dt">top</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">40</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">60</span> }<span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    width_weather <span class="op">=</span> <span class="dv">700</span> <span class="op">-</span> margin_weather<span class="op">.</span><span class="at">left</span> <span class="op">-</span> margin_weather<span class="op">.</span><span class="at">right</span><span class="op">,</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    height_weather <span class="op">=</span> <span class="dv">200</span> <span class="op">-</span> margin_weather<span class="op">.</span><span class="at">top</span> <span class="op">-</span> margin_weather<span class="op">.</span><span class="at">bottom</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">// append the svg object to the body of the page</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> svg_weather <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#weather&quot;</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;svg&quot;</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> width_weather <span class="op">+</span> margin_weather<span class="op">.</span><span class="at">left</span> <span class="op">+</span> margin_weather<span class="op">.</span><span class="at">right</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> height_weather <span class="op">+</span> margin_weather<span class="op">.</span><span class="at">top</span> <span class="op">+</span> margin_weather<span class="op">.</span><span class="at">bottom</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;translate(&quot;</span> <span class="op">+</span> margin_weather<span class="op">.</span><span class="at">left</span> <span class="op">+</span> <span class="st">&quot;,&quot;</span> <span class="op">+</span> margin_weather<span class="op">.</span><span class="at">top</span> <span class="op">+</span> <span class="st">&quot;)&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">//read in csv</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> wind_data <span class="op">=</span> d3<span class="op">.</span><span class="fu">csv</span>(<span class="st">&quot;scores.csv&quot;</span>)<span class="op">.</span><span class="fu">then</span>((data) <span class="kw">=&gt;</span> {</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">//parse the time</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> parseTime <span class="op">=</span> d3<span class="op">.</span><span class="fu">timeParse</span>(<span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> dates <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> obj <span class="kw">of</span> data) {</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        dates<span class="op">.</span><span class="fu">push</span>(<span class="fu">parseTime</span>(obj<span class="op">.</span><span class="at">time</span>))<span class="op">;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">//setup x axis</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> domain <span class="op">=</span> d3<span class="op">.</span><span class="fu">extent</span>(dates)<span class="op">;</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">make_x_gridlines</span>() {</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> d3<span class="op">.</span><span class="fu">axisBottom</span>(x)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">ticks</span>(<span class="dv">10</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> x <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleTime</span>()</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>(domain)</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> width_weather])<span class="op">;</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(0,&quot;</span> <span class="op">+</span> height_weather <span class="op">+</span> <span class="st">&quot;)&quot;</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">call</span>(d3<span class="op">.</span><span class="fu">axisBottom</span>(x))<span class="op">;</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;grid&quot;</span>)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(0,&quot;</span> <span class="op">+</span> height_weather <span class="op">+</span> <span class="st">&quot;)&quot;</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">call</span>(<span class="fu">make_x_gridlines</span>()</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">tickSize</span>(<span class="op">-</span>height_weather)</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">tickFormat</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;y label&quot;</span>)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;end&quot;</span>)</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;14px&quot;</span>)</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="dv">6</span>)</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;dy&quot;</span><span class="op">,</span> <span class="st">&quot;-2.2em&quot;</span>)</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;rotate(-90)&quot;</span>)</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;wind (knots)&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>    <span class="co">//setup dual y axis</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">make_y_gridlines</span>() {</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> d3<span class="op">.</span><span class="fu">axisLeft</span>(y)</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">ticks</span>(<span class="dv">5</span>)</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> y <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">30</span>])</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([height_weather<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">call</span>(d3<span class="op">.</span><span class="fu">axisLeft</span>(y)</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">ticks</span>(<span class="dv">5</span>))<span class="op">;</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> y1 <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">6</span>])</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([height_weather<span class="op">,</span> <span class="dv">0</span>])<span class="op">;</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;grid&quot;</span>)</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">call</span>(<span class="fu">make_y_gridlines</span>()</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">tickSize</span>(<span class="op">-</span>width_weather)</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">tickFormat</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;translate(600,0)&quot;</span>)</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">call</span>(d3<span class="op">.</span><span class="fu">axisRight</span>(y1)<span class="op">.</span><span class="fu">ticks</span>(<span class="dv">5</span>))<span class="op">;</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;text&quot;</span>)</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;y label&quot;</span>)</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;text-anchor&quot;</span><span class="op">,</span> <span class="st">&quot;end&quot;</span>)</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;font-size&quot;</span><span class="op">,</span> <span class="st">&quot;14px&quot;</span>)</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;y&quot;</span><span class="op">,</span> <span class="dv">6</span>)</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;dy&quot;</span><span class="op">,</span> <span class="st">&quot;590&quot;</span>)</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;transform&quot;</span><span class="op">,</span> <span class="st">&quot;rotate(-90)&quot;</span>)</span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">text</span>(<span class="st">&quot;swell (m)&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>    <span class="co">//define score colors</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> wind_colours <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleOrdinal</span>()</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">domain</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>])</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">range</span>([<span class="st">&#39;green&#39;</span><span class="op">,</span> <span class="st">&#39;orange&#39;</span><span class="op">,</span> <span class="st">&#39;red&#39;</span>])<span class="op">;</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>    <span class="co">//setup swell color gradient (see also css)</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;linearGradient&quot;</span>)</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;id&quot;</span><span class="op">,</span> <span class="st">&quot;swell_gradient&quot;</span>)</span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;gradientUnits&quot;</span><span class="op">,</span> <span class="st">&quot;userSpaceOnUse&quot;</span>)</span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x1&quot;</span><span class="op">,</span> <span class="dv">0</span>)</span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x2&quot;</span><span class="op">,</span> width_weather)</span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;stop&quot;</span>)</span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(data)</span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">join</span>(<span class="st">&quot;stop&quot;</span>)</span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;offset&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">x</span>(<span class="fu">parseTime</span>(d<span class="op">.</span><span class="at">time</span>)) <span class="op">/</span> width_weather)</span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;stop-color&quot;</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">wind_colours</span>(<span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">swell_score</span>)))<span class="op">;</span></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;path&quot;</span>)</span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">datum</span>(data)</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;line&quot;</span>)</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;stroke-width&quot;</span><span class="op">,</span> <span class="fl">1.5</span>)</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;d&quot;</span><span class="op">,</span> d3<span class="op">.</span><span class="fu">area</span>()</span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">x</span>(<span class="kw">function</span> (d) { <span class="cf">return</span> <span class="fu">x</span>(<span class="fu">parseTime</span>(d<span class="op">.</span><span class="at">time</span>)) })</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">y0</span>(<span class="fu">y</span>(<span class="dv">0</span>))</span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">y1</span>(<span class="kw">function</span> (d) { <span class="cf">return</span> <span class="fu">y</span>(d<span class="op">.</span><span class="at">swell</span> <span class="op">*</span> <span class="dv">5</span>) })</span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>    <span class="co">//add in arrows    </span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>    d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#weather&quot;</span>)</span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;g&#39;</span>)</span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&#39;path&#39;</span>)</span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(data)</span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">enter</span>()</span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&#39;path&#39;</span>)</span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;transform&#39;</span><span class="op">,</span> <span class="kw">function</span> (d) {</span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="st">&#39;translate(&#39;</span> <span class="op">+</span> <span class="fu">x</span>(<span class="fu">parseTime</span>(d<span class="op">.</span><span class="at">time</span>)) <span class="op">+</span> <span class="st">&#39;,&#39;</span> <span class="op">+</span> <span class="fu">y</span>(d<span class="op">.</span><span class="at">wind</span>) <span class="op">+</span> <span class="st">&#39; ) rotate(&#39;</span> <span class="op">+</span> d<span class="op">.</span><span class="at">wind_dir</span> <span class="op">+</span> <span class="st">&#39;)&#39;</span><span class="op">;</span></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&#39;d&#39;</span><span class="op">,</span> <span class="st">&quot;M2.2 0 0 6.6 0 6.6 0 6.6-2.2 0-5.5-6.6 0-4.4 5.5-6.6Z&quot;</span>)</span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="kw">function</span> (d) { <span class="cf">return</span> <span class="fu">wind_colours</span>(<span class="pp">parseInt</span>(d<span class="op">.</span><span class="at">wind_score</span>))<span class="op">;</span> })</span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;opacity&quot;</span><span class="op">,</span> <span class="fl">0.7</span>)</span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a>    <span class="co">//add tooltip div    </span></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> Tooltip <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">&quot;#weather&quot;</span>)</span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;div&quot;</span>)</span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;opacity&quot;</span><span class="op">,</span> <span class="dv">0</span>)</span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;position&quot;</span><span class="op">,</span> <span class="st">&#39;absolute&#39;</span>)</span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;class&quot;</span><span class="op">,</span> <span class="st">&quot;tooltip text-center&quot;</span>)</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;background-color&quot;</span><span class="op">,</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;border&quot;</span><span class="op">,</span> <span class="st">&quot;solid&quot;</span>)</span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;0px&quot;</span>)</span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;border-width&quot;</span><span class="op">,</span> <span class="st">&quot;1px&quot;</span>)</span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;border-color&quot;</span><span class="op">,</span> <span class="st">&quot;#343a40&quot;</span>)</span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;border-radius&quot;</span><span class="op">,</span> <span class="st">&quot;5px&quot;</span>)</span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;padding&quot;</span><span class="op">,</span> <span class="st">&quot;6px&quot;</span>)</span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;top&quot;</span><span class="op">,</span> <span class="st">&quot;0px&quot;</span>)</span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;left&quot;</span><span class="op">,</span> <span class="st">&quot;0px&quot;</span>)</span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> formatTime <span class="op">=</span> d3<span class="op">.</span><span class="fu">timeFormat</span>(<span class="st">&quot;%a %I:00 %p&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a>    <span class="co">//define mouseover functions to create tooltip  </span></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> mouseover <span class="op">=</span> <span class="kw">function</span> (<span class="bu">event</span><span class="op">,</span> a) {</span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a>        Tooltip</span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;opacity&quot;</span><span class="op">,</span> <span class="op">.</span><span class="dv">90</span>)</span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;min-width&quot;</span><span class="op">,</span> <span class="st">&quot;130px&quot;</span>)</span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;max-width&quot;</span><span class="op">,</span> <span class="st">&quot;160px&quot;</span>)</span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> <span class="st">&quot;80px&quot;</span>)</span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">html</span>(<span class="st">&quot;&lt;b&gt;&quot;</span> <span class="op">+</span> <span class="fu">formatTime</span>(<span class="fu">parseTime</span>(a<span class="op">.</span><span class="at">time</span>)) <span class="op">+</span></span>
+<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;&lt;/b&gt;&lt;span style=&quot;color:&#39;</span> <span class="op">+</span> <span class="fu">wind_colours</span>(<span class="pp">parseInt</span>(a<span class="op">.</span><span class="at">wind_score</span>)) <span class="op">+</span> <span class="st">&#39;&quot;&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;&lt;br&gt;Wind: &#39;</span> <span class="op">+</span> a<span class="op">.</span><span class="at">wind</span> <span class="op">+</span> <span class="st">&#39;kn &#39;</span> <span class="op">+</span> a<span class="op">.</span><span class="at">wind_dir_text</span> <span class="op">+</span></span>
+<span id="cb7-166"><a href="#cb7-166" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;&lt;/span&gt;&lt;span style=&quot;color:&#39;</span> <span class="op">+</span> <span class="fu">wind_colours</span>(<span class="pp">parseInt</span>(a<span class="op">.</span><span class="at">swell_score</span>)) <span class="op">+</span> <span class="st">&#39;&quot;&gt;&#39;</span> <span class="op">+</span></span>
+<span id="cb7-167"><a href="#cb7-167" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;&lt;br&gt;Swell: &#39;</span> <span class="op">+</span> a<span class="op">.</span><span class="at">swell</span> <span class="op">+</span> <span class="st">&#39;m &#39;</span> <span class="op">+</span> a<span class="op">.</span><span class="at">swell_dir_text</span> <span class="op">+</span> <span class="st">&#39;&lt;/span&gt;&#39;</span>)</span>
+<span id="cb7-168"><a href="#cb7-168" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;top&quot;</span><span class="op">,</span> <span class="bu">event</span><span class="op">.</span><span class="at">pageY</span> <span class="op">-</span> <span class="dv">100</span> <span class="op">+</span> <span class="st">&quot;px&quot;</span>)</span>
+<span id="cb7-169"><a href="#cb7-169" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;left&quot;</span><span class="op">,</span> <span class="bu">event</span><span class="op">.</span><span class="at">pageX</span> <span class="op">-</span> <span class="dv">60</span> <span class="op">+</span> <span class="st">&quot;px&quot;</span>)</span>
+<span id="cb7-170"><a href="#cb7-170" aria-hidden="true" tabindex="-1"></a>        d3<span class="op">.</span><span class="fu">select</span>(<span class="bu">event</span><span class="op">.</span><span class="at">currentTarget</span>)</span>
+<span id="cb7-171"><a href="#cb7-171" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="fu">wind_colours</span>(<span class="pp">parseInt</span>(a<span class="op">.</span><span class="at">total_score</span>)))</span>
+<span id="cb7-172"><a href="#cb7-172" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="fu">wind_colours</span>(<span class="pp">parseInt</span>(a<span class="op">.</span><span class="at">total_score</span>)))</span>
+<span id="cb7-173"><a href="#cb7-173" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;opacity&quot;</span><span class="op">,</span> <span class="op">.</span><span class="dv">25</span>)</span>
+<span id="cb7-174"><a href="#cb7-174" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-175"><a href="#cb7-175" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> mouseleave <span class="op">=</span> <span class="kw">function</span> (d) {</span>
+<span id="cb7-176"><a href="#cb7-176" aria-hidden="true" tabindex="-1"></a>        Tooltip</span>
+<span id="cb7-177"><a href="#cb7-177" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;opacity&quot;</span><span class="op">,</span> <span class="dv">0</span>)</span>
+<span id="cb7-178"><a href="#cb7-178" aria-hidden="true" tabindex="-1"></a>        d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)</span>
+<span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;stroke&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a>            <span class="op">.</span><span class="fu">style</span>(<span class="st">&quot;opacity&quot;</span><span class="op">,</span> <span class="fl">0.8</span>)</span>
+<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a>    <span class="co">//create boxes for each hour to catch tooltip</span></span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a>    svg_weather<span class="op">.</span><span class="fu">append</span>(<span class="st">&quot;g&quot;</span>)</span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;fill&quot;</span><span class="op">,</span> <span class="st">&quot;None&quot;</span>)</span>
+<span id="cb7-187"><a href="#cb7-187" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;pointer-events&quot;</span><span class="op">,</span> <span class="st">&quot;all&quot;</span>)</span>
+<span id="cb7-188"><a href="#cb7-188" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb7-189"><a href="#cb7-189" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">data</span>(d3<span class="op">.</span><span class="fu">pairs</span>(data))</span>
+<span id="cb7-190"><a href="#cb7-190" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">join</span>(<span class="st">&quot;rect&quot;</span>)</span>
+<span id="cb7-191"><a href="#cb7-191" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;x&quot;</span><span class="op">,</span> ([a<span class="op">,</span> b]) <span class="kw">=&gt;</span> <span class="fu">x</span>(<span class="fu">parseTime</span>(a<span class="op">.</span><span class="at">time</span>)))</span>
+<span id="cb7-192"><a href="#cb7-192" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;height&quot;</span><span class="op">,</span> height)</span>
+<span id="cb7-193"><a href="#cb7-193" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">&quot;width&quot;</span><span class="op">,</span> ([a<span class="op">,</span> b]) <span class="kw">=&gt;</span> <span class="fu">x</span>(<span class="fu">parseTime</span>(b<span class="op">.</span><span class="at">time</span>)) <span class="op">-</span> <span class="fu">x</span>(<span class="fu">parseTime</span>(a<span class="op">.</span><span class="at">time</span>)))</span>
+<span id="cb7-194"><a href="#cb7-194" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;mouseover&quot;</span><span class="op">,</span> (<span class="bu">event</span><span class="op">,</span> [a]) <span class="kw">=&gt;</span> <span class="fu">mouseover</span>(<span class="bu">event</span><span class="op">,</span> a))</span>
+<span id="cb7-195"><a href="#cb7-195" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">&quot;mouseout&quot;</span><span class="op">,</span> mouseleave)</span>
+<span id="cb7-196"><a href="#cb7-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-197"><a href="#cb7-197" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+</details>
+<script type="text/javascript">
+// set the dimensions and margins of the graph
+var margin_weather = { top: 10, right: 40, bottom: 30, left: 60 },
+    width_weather = 700 - margin_weather.left - margin_weather.right,
+    height_weather = 200 - margin_weather.top - margin_weather.bottom;
+
+// append the svg object to the body of the page
+var svg_weather = d3.select("#weather")
+    .append("svg")
+    .attr("width", width_weather + margin_weather.left + margin_weather.right)
+    .attr("height", height_weather + margin_weather.top + margin_weather.bottom)
+    .append("g")
+    .attr("transform",
+        "translate(" + margin_weather.left + "," + margin_weather.top + ")");
+
+
+//read in csv
+var wind_data = d3.csv("scores.csv").then((data) => {
+
+    //parse the time
+    var parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
+    var dates = [];
+    for (let obj of data) {
+        dates.push(parseTime(obj.time));
+    }
+
+    //setup x axis
+    var domain = d3.extent(dates);
+
+    function make_x_gridlines() {
+        return d3.axisBottom(x)
+            .ticks(10)
+    }
+
+    var x = d3.scaleTime()
+        .domain(domain)
+        .range([0, width_weather]);
+
+    svg_weather.append("g")
+        .attr("transform", "translate(0," + height_weather + ")")
+        .call(d3.axisBottom(x));
+
+    svg_weather.append("g")
+        .attr("class", "grid")
+        .attr("transform", "translate(0," + height_weather + ")")
+        .call(make_x_gridlines()
+            .tickSize(-height_weather)
+            .tickFormat("")
+        )
+
+    svg_weather.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .style("font-size", "14px")
+        .attr("y", 6)
+        .attr("dy", "-2.2em")
+        .attr("transform", "rotate(-90)")
+        .text("wind (knots)");
+
+    //setup dual y axis
+    function make_y_gridlines() {
+        return d3.axisLeft(y)
+            .ticks(5)
+    }
+
+    var y = d3.scaleLinear()
+        .domain([0, 30])
+        .range([height_weather, 0]);
+
+    svg_weather.append("g")
+        .call(d3.axisLeft(y)
+            .ticks(5));
+
+    var y1 = d3.scaleLinear()
+        .domain([0, 6])
+        .range([height_weather, 0]);
+
+    svg_weather.append("g")
+        .attr("class", "grid")
+        .call(make_y_gridlines()
+            .tickSize(-width_weather)
+            .tickFormat("")
+        )
+
+    svg_weather.append("g")
+        .attr("transform", "translate(600,0)")
+        .call(d3.axisRight(y1).ticks(5));
+
+    svg_weather.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .style("font-size", "14px")
+        .attr("y", 6)
+        .attr("dy", "590")
+        .attr("transform", "rotate(-90)")
+        .text("swell (m)");
+
+    //define score colors
+    var wind_colours = d3.scaleOrdinal()
+        .domain([0, 1, 2])
+        .range(['green', 'orange', 'red']);
+
+    //setup swell color gradient (see also css)
+    svg_weather.append("linearGradient")
+        .attr("id", "swell_gradient")
+        .attr("gradientUnits", "userSpaceOnUse")
+        .attr("x1", 0)
+        .attr("x2", width_weather)
+        .selectAll("stop")
+        .data(data)
+        .join("stop")
+        .attr("offset", d => x(parseTime(d.time)) / width_weather)
+        .attr("stop-color", d => wind_colours(parseInt(d.swell_score)));
+
+    svg_weather.append("path")
+        .datum(data)
+        .attr("class", "line")
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.area()
+            .x(function (d) { return x(parseTime(d.time)) })
+            .y0(y(0))
+            .y1(function (d) { return y(d.swell * 5) })
+        )
+
+    //add in arrows    
+    d3.select("#weather")
+        .select('g')
+        .selectAll('path')
+        .data(data)
+        .enter()
+        .append('path')
+        .attr('transform', function (d) {
+            return 'translate(' + x(parseTime(d.time)) + ',' + y(d.wind) + ' ) rotate(' + d.wind_dir + ')';
+        })
+        .attr('d', "M2.2 0 0 6.6 0 6.6 0 6.6-2.2 0-5.5-6.6 0-4.4 5.5-6.6Z")
+        .style("fill", function (d) { return wind_colours(parseInt(d.wind_score)); })
+        .style("opacity", 0.7)
+
+    //add tooltip div    
+    var Tooltip = d3.select("#weather")
+        .append("div")
+        .style("opacity", 0)
+        .style("position", 'absolute')
+        .attr("class", "tooltip text-center")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("height", "0px")
+        .style("border-width", "1px")
+        .style("border-color", "#343a40")
+        .style("border-radius", "5px")
+        .style("padding", "6px")
+        .style("top", "0px")
+        .style("left", "0px")
+
+    const formatTime = d3.timeFormat("%a %I:00 %p");
+
+    //define mouseover functions to create tooltip  
+    var mouseover = function (event, a) {
+        Tooltip
+            .style("opacity", .90)
+            .style("min-width", "130px")
+            .style("max-width", "160px")
+            .style("height", "80px")
+            .html("<b>" + formatTime(parseTime(a.time)) +
+                '</b><span style="color:' + wind_colours(parseInt(a.wind_score)) + '">' +
+                '<br>Wind: ' + a.wind + 'kn ' + a.wind_dir_text +
+                '</span><span style="color:' + wind_colours(parseInt(a.swell_score)) + '">' +
+                '<br>Swell: ' + a.swell + 'm ' + a.swell_dir_text + '</span>')
+            .style("top", event.pageY - 100 + "px")
+            .style("left", event.pageX - 60 + "px")
+        d3.select(event.currentTarget)
+            .style("stroke", wind_colours(parseInt(a.total_score)))
+            .style("fill", wind_colours(parseInt(a.total_score)))
+            .style("opacity", .25)
+    }
+    var mouseleave = function (d) {
+        Tooltip
+            .style("opacity", 0)
+        d3.select(this)
+            .style("stroke", "none")
+            .style("fill", "none")
+            .style("opacity", 0.8)
+    }
+
+    //create boxes for each hour to catch tooltip
+    svg_weather.append("g")
+        .attr("fill", "None")
+        .attr("pointer-events", "all")
+        .selectAll("rect")
+        .data(d3.pairs(data))
+        .join("rect")
+        .attr("x", ([a, b]) => x(parseTime(a.time)))
+        .attr("height", height)
+        .attr("width", ([a, b]) => x(parseTime(b.time)) - x(parseTime(a.time)))
+        .on("mouseover", (event, [a]) => mouseover(event, a))
+        .on("mouseout", mouseleave)
+
+})
+</script>
+</div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>On Vis.Report, this is saved into the
+database for each site. Notice how you can click the wind rose to change
+its colour. You are able to post this modified table back to to the
+database using a button with the id=“wind_button”, and a custom onsubmit
+event for the form: <small> document.getElementById(‘wind_button’).value
+= d3.csvFormat(d3.selectAll(‘path’).data());</small><a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>The back-end python code is mostly in
+<a
+href="https://github.com/patrick-morrison/visreport2/blob/main/weather/views.py">this
+views file</a>. This front-end graphing is in <a
+href="https://github.com/patrick-morrison/visreport2/tree/main/weather/templates/weather">the
+templates</a>.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
