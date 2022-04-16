@@ -1569,8 +1569,8 @@ Show code
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-821db2d206c940455bdb" style="width:624px;height:384px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-821db2d206c940455bdb">{"x":{"options":{"minZoom":10,"maxZoom":13,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[-31.963271,115.747833],10,[]],"calls":[{"method":"addProviderTiles","args":["CartoDB.Voyager",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[-31.863271,115.747833,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0,"fill":true,"fillColor":"#03F","fillOpacity":0},null,null,null,null,"Mettam's Pool",{"interactive":false,"permanent":true,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"15px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-31.863271,-31.863271],"lng":[115.747833,115.747833]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-85966cd3d55bd0a17012" style="width:624px;height:384px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-85966cd3d55bd0a17012">{"x":{"options":{"minZoom":10,"maxZoom":13,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[-31.963271,115.747833],10,[]],"calls":[{"method":"addProviderTiles","args":["CartoDB.Voyager",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[-31.863271,115.747833,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0,"fill":true,"fillColor":"#03F","fillOpacity":0},null,null,null,null,"Mettam's Pool",{"interactive":false,"permanent":true,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"15px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-31.863271,-31.863271],"lng":[115.747833,115.747833]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <p>Access to the site, and underwater conditions are very weather
 dependent.</p>
@@ -1924,13 +1924,8 @@ degrees. This table is then left-joined to the wind condition table. A
 function for swell defining marginal (1.2m for Mettam’s) and maximum
 (1.8m) is applied to the swell height. These are both combined with the
 original forecast and saved as a csv, for passing to the graphing
-function.[^On Vis.Report, this is a csv endpoint for each site. Each
-time it is called, it calculates the scores against the weather
-forecast. If the weather forecast has been refreshed in the last 3 hours
-it just pulls it from the database. Otherwise, it updates before
-scoring. See for <a
-href="https://vis.report/sites_weather/met/weather_csv/">Mettam’s
-Pool</a>.]</p>
+function.<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a></p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -2486,6 +2481,14 @@ href="https://github.com/patrick-morrison/visreport2/blob/main/weather/views.py"
 views file</a>. This front-end graphing is in <a
 href="https://github.com/patrick-morrison/visreport2/tree/main/weather/templates/weather">the
 templates</a>.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>On Vis.Report, this is a csv endpoint
+for each site. Each time it is called, it calculates the scores against
+the weather forecast. If the weather forecast has been refreshed in the
+last 3 hours it just pulls it from the database. Otherwise, it updates
+before scoring. See for <a
+href="https://vis.report/sites_weather/met/weather_csv/">Mettam’s
+Pool</a>.<a href="#fnref3" class="footnote-back"
 role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

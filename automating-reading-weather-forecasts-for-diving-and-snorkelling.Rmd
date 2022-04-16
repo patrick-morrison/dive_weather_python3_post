@@ -272,7 +272,7 @@ weather.head()
 
 ## Scoring the forecast
 
-Scoring the forecast involves a join to the wind table, and a function for swell. On the forecast table, wind speed is rounded down to the nearest 5 knots, and wind angle is rounded to the nearest 45 degrees. This table is then left-joined to the wind condition table. A function for swell defining marginal (1.2m for Mettam's) and maximum (1.8m) is applied to the swell height. These are both combined with the original forecast and saved as a csv, for passing to the graphing function.[\^On Vis.Report, this is a csv endpoint for each site. Each time it is called, it calculates the scores against the weather forecast. If the weather forecast has been refreshed in the last 3 hours it just pulls it from the database. Otherwise, it updates before scoring. See for [Mettam's Pool](https://vis.report/sites_weather/met/weather_csv/).]
+Scoring the forecast involves a join to the wind table, and a function for swell. On the forecast table, wind speed is rounded down to the nearest 5 knots, and wind angle is rounded to the nearest 45 degrees. This table is then left-joined to the wind condition table. A function for swell defining marginal (1.2m for Mettam's) and maximum (1.8m) is applied to the swell height. These are both combined with the original forecast and saved as a csv, for passing to the graphing function.^[On Vis.Report, this is a csv endpoint for each site. Each time it is called, it calculates the scores against the weather forecast. If the weather forecast has been refreshed in the last 3 hours it just pulls it from the database. Otherwise, it updates before scoring. See for [Mettam's Pool](https://vis.report/sites_weather/met/weather_csv/).]
 
 ```{python scoring}
 # Read the conditions table to pandas
